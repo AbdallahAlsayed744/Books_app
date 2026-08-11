@@ -25,3 +25,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Books_app"
 include(":app")
+include(":common:data")
+include(":common:domain")
+include(":common:presentation")

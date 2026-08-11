@@ -21,6 +21,10 @@ dependencies {
 gradlePlugin {
 
     plugins {
+        register("androidApplication") {
+            id = "hyperdesign.android.application"
+            implementationClass = "AndroidApplicationConventionPlugin"
+        }
         register("androidLibrary") {
             id = "hyperdesign.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
