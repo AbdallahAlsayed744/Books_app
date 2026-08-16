@@ -11,7 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.hyperdesign.books_app.ui.BookAppRoot
 import com.hyperdesign.books_app.ui.theme.Books_appTheme
+import com.hyperdesign.design_system.theme.BookTheme
 
 
 class MainActivity : ComponentActivity() {
@@ -19,15 +21,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            Books_appTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-
-                }
-            }
+            BookAppRoot()
         }
     }
 }
@@ -36,19 +30,3 @@ class MainActivity : ComponentActivity() {
 
 
 
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Books_appTheme {
-        Greeting("Android")
-    }
-}
