@@ -38,6 +38,11 @@ dependencies {
     implementation(project(":common:data"))
     implementation(project(":common:presentation"))
 
+    implementation(project(":feature:home:presentation"))
+    implementation(project(":feature:search:presentation"))
+    implementation(project(":feature:favourites:presentation"))
+    implementation(project(":feature:settings:presentation"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.activity.compose)

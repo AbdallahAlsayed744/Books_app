@@ -19,3 +19,6 @@ data object BookDetails: NavKey
 @Serializable
 data object BookList: NavKey
 
+@Serializable
+data object Favourites: NavKey
+

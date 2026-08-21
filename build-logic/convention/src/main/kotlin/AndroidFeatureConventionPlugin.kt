@@ -13,9 +13,9 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
 
         dependencies {
             add("implementation", project(":common:presentation"))
-//            add("implementation", project(":core:design-system"))
-//            add("implementation", project(":core:navigation"))
-//            add("implementation", project(":core:contract"))
+            add("implementation", project(":core:design-system"))
+            add("implementation", project(":core:navigation"))
+            add("implementation", project(":core:contract"))
 
             add("implementation", catalogLibs.findLibrary("androidx-lifecycle-viewmodel-compose").get())
             add("implementation", catalogLibs.findLibrary("androidx-navigation3-runtime").get())

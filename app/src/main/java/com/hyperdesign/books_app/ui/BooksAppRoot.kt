@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation3.runtime.NavKey
 import com.hyperdesign.books_app.R
 import com.hyperdesign.navigation.BookList
+import com.hyperdesign.navigation.Favourites
 import com.hyperdesign.navigation.Home
 import com.hyperdesign.navigation.Search
 import com.hyperdesign.navigation.Settings
@@ -53,7 +54,7 @@ private data class TopLevelDestination(
 private val topLevelDestinations = listOf(
     TopLevelDestination(Home, Icons.Filled.Home, R.string.nav_home),
     TopLevelDestination(Search, Icons.Filled.Search, R.string.nav_search),
-    TopLevelDestination(BookList, Icons.Filled.Favorite, R.string.nav_favorites),
+    TopLevelDestination(Favourites, Icons.Filled.Favorite, R.string.nav_favorites),
     TopLevelDestination(Settings, Icons.Filled.Settings, R.string.nav_settings),
 )
 
