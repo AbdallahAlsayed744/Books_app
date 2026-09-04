@@ -8,8 +8,9 @@ android {
 }
 
 dependencies {
-//    implementation(project(":feature:settings:domain"))
-//    implementation(project(":core:contract"))
+    api(project(":common:domain"))
+    implementation(project(":core:networking"))
+    implementation(project(":core:database"))
 
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.androidx.paging.common)

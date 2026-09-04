@@ -10,8 +10,9 @@ android {
 }
 
 dependencies {
+
     api(project(":common:domain"))
-//    implementation(project(":core:design-system"))
+    implementation(project(":core:design-system"))
 
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)

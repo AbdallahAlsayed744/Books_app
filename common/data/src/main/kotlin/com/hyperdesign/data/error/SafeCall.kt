@@ -1,0 +1,38 @@
+package com.hyperdesign.data.error
+
+import com.hyperdesign.domain.error.AppError
+import com.hyperdesign.domain.result.Outcome
+import io.ktor.client.plugins.ClientRequestException
+import io.ktor.client.plugins.HttpRequestTimeoutException
+import io.ktor.client.plugins.ServerResponseException
+import java.io.IOException
+import java.net.UnknownHostException
+import kotlinx.coroutines.CancellationException
+
+suspend inline fun <T> safeApiCall(crossinline block: suspend () -> T): Outcome<T> = try {
+    Outcome.Success(block())
+} catch (e: CancellationException) {
+    throw e
+} catch (e: Throwable) {
+    Outcome.Failure(e.toAppError())
+}
+
+suspend inline fun <T> safeDbCall(crossinline block: suspend () -> T): Outcome<T> = try {
+    Outcome.Success(block())
+} catch (e: CancellationException) {
+    throw e
+} catch (e: Throwable) {
+    Outcome.Failure(AppError.Database)
+}
+
+fun Throwable.toAppError(): AppError = when (this) {
+    is HttpRequestTimeoutException -> AppError.Timeout
+    is UnknownHostException, is IOException -> AppError.Network
+    is ClientRequestException -> when (response.status.value) {
+        401, 403 -> AppError.Unauthorized
+        404 -> AppError.NotFound
+        else -> AppError.Http(response.status.value)
+    }
+    is ServerResponseException -> AppError.Http(response.status.value)
+    else -> AppError.Unknown(this)
+}
