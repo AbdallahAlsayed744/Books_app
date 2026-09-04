@@ -4,8 +4,8 @@ import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
-import com.app.movieapp.common.domain.connectivity.ConnectivityObserver
-import com.app.movieapp.common.domain.connectivity.NetworkStatus
+import com.hyperdesign.domain.connectivity.ConnectivityObserver
+import com.hyperdesign.domain.connectivity.NetworkStatus
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
