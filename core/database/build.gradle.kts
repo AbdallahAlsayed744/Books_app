@@ -17,4 +17,6 @@ dependencies {
     implementation(libs.androidx.paging.common)
     androidTestImplementation(libs.androidx.room.testing)
     androidTestImplementation(libs.androidx.junit)
+    implementation(libs.kotlinx.serialization.json)
+
 }

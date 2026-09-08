@@ -1,6 +1,7 @@
 package com.hyperdesign.books_app.di
 
 import com.hyperdesign.data.di.commonDataModule
+import com.hyperdesign.database.di.databaseModule
 import com.hyperdesign.networking.di.networkModule
 import com.hyperdesign.presentation.di.favouritesPresentationModule
 import com.hyperdesign.presentation.di.homePresentationModule
@@ -21,5 +22,6 @@ val allModules = listOf(
     settingsPresentationModule,
     networkModule,
     commonDataModule,
-    appModule
+    appModule,
+    databaseModule
 )
