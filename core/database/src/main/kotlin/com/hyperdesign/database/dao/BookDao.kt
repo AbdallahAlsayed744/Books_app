@@ -11,16 +11,29 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface BookDao {
 
-    @Query("SELECT * FROM books ORDER BY page ASC, positionInPage ASC")
+    @Query("""
+        SELECT * FROM books
+        ORDER BY page ASC, positionInPage ASC
+    """)
     fun pagingSource(): PagingSource<Int, BookEntity>
 
-    @Query("SELECT * FROM books WHERE id = :id LIMIT 1")
+    @Query("""
+        SELECT * FROM books
+        WHERE id = :id
+        LIMIT 1
+    """)
     fun observeById(id: Int): Flow<BookEntity?>
 
-    @Query("SELECT * FROM books WHERE id = :id LIMIT 1")
+    @Query("""
+        SELECT * FROM books
+        WHERE id = :id
+        LIMIT 1
+    """)
     suspend fun findById(id: Int): BookEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun upsertAll(movies: List<BookEntity>)
+    suspend fun upsertAll(books: List<BookEntity>)
 
+    @Query("DELETE FROM books")
+    suspend fun clearAll()
 }
