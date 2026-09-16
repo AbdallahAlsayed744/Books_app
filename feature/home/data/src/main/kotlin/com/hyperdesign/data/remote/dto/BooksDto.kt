@@ -12,7 +12,7 @@ data class BookResponseDto(
     @SerialName("offset")
     val offset : Int ? = null,
     @SerialName("books")
-    val books : List<BookDto> ? = null,
+    val books : List<List<BookDto>> ? = null,
 
 )
 

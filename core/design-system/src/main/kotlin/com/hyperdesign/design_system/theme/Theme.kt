@@ -98,3 +98,6 @@ fun BookTheme(
 
 
 }
+
+val MaterialTheme.spacing: Spacing
+    @Composable get() = LocalSpacing.current

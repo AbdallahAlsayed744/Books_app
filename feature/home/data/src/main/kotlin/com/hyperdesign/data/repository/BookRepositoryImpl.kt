@@ -53,7 +53,7 @@ class BookRepositoryImpl(
 
     override suspend fun refresh(): Outcome<Unit> = safeApiCall {
         val response = api.getBooks(query = "books+about+wizards",0, 10)
-        val entities = response.books?.mapIndexed { i, dto -> dto.toEntity(0+i, 1, i) }
+        val entities = response.books?.flatten()?.mapIndexed { i, dto -> dto.toEntity(0+i, 1, i) }
 
         entities?.let { bookDao.upsertAll(it) }
     }

@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.movieapp.android.library)
     alias(libs.plugins.movieapp.android.room)
     alias(libs.plugins.movieapp.koin)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {

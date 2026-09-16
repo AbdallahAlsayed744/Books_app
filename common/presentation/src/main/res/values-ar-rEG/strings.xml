@@ -9,4 +9,13 @@
     <string name="error_server">خطأ في الخادم (%1$d). يرجى المحاولة لاحقًا.</string>
     <string name="error_generic">حدث خطأ ما. يرجى المحاولة مرة أخرى.</string>
     <string name="action_retry">إعادة المحاولة</string>
+    <string name="books_title">Books Title</string>
+    <string name="books_offline">You\\\'re offline — showing saved movies.</string>
+    <string name="books_empty">No books to show yet.</string>
+    <string name="books_error">We couldn\'t load books. Please try again.</string>
+    <string name="books_retry">Retry</string>
+    <string name="books_cat_popular">Popular</string>
+    <string name="books_cat_now_playing">Now Playing</string>
+    <string name="books_cat_top_rated">Top Rated</string>
+    <string name="books_cat_upcoming">Upcoming</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.hyperdesign.data.paging
 
+import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
@@ -54,7 +55,8 @@ class BooksRemoteMediator(
                 offset = offset,
             )
 
-            val books = response.books.orEmpty()
+            val books = response.books.orEmpty().flatten()
+            Log.d("BooksMediator", "✅ API success — available=${response.available}, books fetched=${books.size}")
 
             val nextOffset = if (
                 books.isEmpty() ||
@@ -76,6 +78,7 @@ class BooksRemoteMediator(
             database.withTransaction {
 
                 if (loadType == LoadType.REFRESH) {
+                    Log.d("BooksMediator", "🗑️ REFRESH — clearing old data")
                     bookDao.clearAll()
                     keyDao.clearAll()
                 }
@@ -88,7 +91,9 @@ class BooksRemoteMediator(
                     )
                 }
 
+                Log.d("BooksMediator", "💾 Inserting ${entities.size} book entities")
                 bookDao.upsertAll(entities)
+                Log.d("BooksMediator", "💾 Inserting ${entities.size} remote key entities")
 
                 keyDao.upsertAll(
                     entities.map {
@@ -100,6 +105,7 @@ class BooksRemoteMediator(
                         )
                     }
                 )
+                Log.d("BooksMediator", "✅ DB transaction complete")
             }
 
             MediatorResult.Success(
@@ -109,6 +115,7 @@ class BooksRemoteMediator(
         } catch (e: CancellationException) {
             throw e
         } catch (e: Throwable) {
+            Log.e("BooksMediator", "💥 MEDIATOR ERROR: ${e::class.simpleName}: ${e.message}", e)
             MediatorResult.Error(
                 AppErrorException(
                     e.toAppError(),

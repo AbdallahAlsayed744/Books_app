@@ -13,6 +13,7 @@ val databaseModule = module {
             BookAppDatabase::class.java,
             BookAppDatabase.NAME,
         ).addMigrations(*BookAppMigrations)
+            .fallbackToDestructiveMigration(dropAllTables = true)
             .fallbackToDestructiveMigrationOnDowngrade(dropAllTables = true)
             .build()
     }
