@@ -73,6 +73,7 @@ object HttpClientFactory {
             url(baseUrl)
             contentType(ContentType.Application.Json)
             header(HttpHeaders.Accept, ContentType.Application.Json.toString())
+            header("x-api-key", accessToken)
         }
     }
 }

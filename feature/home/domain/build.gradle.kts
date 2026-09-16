@@ -5,6 +5,7 @@ plugins {
 
 dependencies {
     api(project(":common:domain"))
+    implementation(libs.androidx.paging.common)
     implementation(libs.kotlinx.coroutines.core)
     implementation(platform(libs.koin.bom))
     implementation(libs.koin.core)

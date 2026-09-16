@@ -39,6 +39,8 @@ dependencies {
     implementation(project(":common:presentation"))
 
     implementation(project(":feature:home:presentation"))
+    implementation(project(":feature:home:data"))
+    implementation(project(":feature:home:domain"))
     implementation(project(":feature:search:presentation"))
     implementation(project(":feature:favourites:presentation"))
     implementation(project(":feature:settings:presentation"))
