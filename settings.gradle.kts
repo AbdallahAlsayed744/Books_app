@@ -47,3 +47,7 @@ include(":feature:favourites:presentation")
 include(":feature:settings:data")
 include(":feature:settings:domain")
 include(":feature:settings:presentation")
+include(":feature:ddd")
+
+include(":feature:book-details:domain")
+include(":feature:book-details:presentation")
