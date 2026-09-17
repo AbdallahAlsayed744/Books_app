@@ -135,6 +135,7 @@ internal fun HomeScreenContent(
                         ),
                         retryLabel = stringResource(R.string.books_retry),
                         onRetry = { books.retry() },
+
                     )
 
                     BooksPhase.Empty -> EmptyState(
