@@ -1,5 +1,6 @@
 package com.hyperdesign.presentation
 
+import android.util.Log
 import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -119,11 +120,14 @@ internal fun HomeScreenContent(
 
 
             val phase = when {
-                refresh is LoadState.Loading && books.itemCount == 0 -> BooksPhase.Loading
+                (refresh is LoadState.Loading || refresh is LoadState.NotLoading) && books.itemCount == 0
+                        && books.loadState.append.endOfPaginationReached.not() -> BooksPhase.Loading
                 refresh is LoadState.Error && books.itemCount == 0 -> BooksPhase.Error
-                refresh is LoadState.NotLoading && books.itemCount == 0 -> BooksPhase.Empty
+                refresh is LoadState.NotLoading && books.itemCount == 0
+                        && books.loadState.append.endOfPaginationReached -> BooksPhase.Empty
                 else -> BooksPhase.Content
             }
+
 
             Crossfade(targetState = phase, label = "BooksPhase") { p ->
                 when (p) {
