@@ -4,6 +4,7 @@ plugins {
 
 dependencies {
     api(project(":common:domain"))
+    implementation(project(":core:contract"))
     implementation(libs.kotlinx.coroutines.core)
     implementation(platform(libs.koin.bom))
     implementation(libs.koin.core)

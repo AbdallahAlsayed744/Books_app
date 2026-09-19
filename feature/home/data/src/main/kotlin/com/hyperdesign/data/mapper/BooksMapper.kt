@@ -1,6 +1,7 @@
 package com.hyperdesign.data.mapper
 
 import android.R.attr.description
+import com.hyperdesign.contract.books.BookSummary
 import com.hyperdesign.data.remote.dto.BookDto
 import com.hyperdesign.database.entity.AuthorEntity
 import com.hyperdesign.database.entity.BookEntity
@@ -34,4 +35,13 @@ fun BookEntity.toDomain(): Book = Book(
     subtitle = subtitle,
     image = image,
     ratingAverage = ratingAverage,
+)
+
+fun Book.toSummary(): BookSummary = BookSummary(
+    id = id,
+    title = title,
+    posterUrl = image?:"",
+    rating = ratingAverage?:0.0,
+    overview = subtitle?:"",
+    releaseDate = subtitle?:"",
 )

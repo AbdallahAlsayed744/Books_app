@@ -55,6 +55,7 @@ private const val HERO_COUNT = 6
 private enum class BooksPhase { Loading, Error, Empty, Content }
 @Composable
 fun HomeScreen(
+    onOpenDetails: (Int) -> Unit,
     viewModel: HomeViewModel = koinViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -66,7 +67,7 @@ fun HomeScreen(
         viewModel.effect.collect { effect ->
             when (effect) {
                 is HomeEffect.NavigateToDetails -> {
-//                    onOpenDetails(effect.movieId)
+                    onOpenDetails(effect.bookId)
                 }
                 is HomeEffect.ShowSnackbar ->
                     scope.launch { snackbarHostState.showSnackbar(effect.message) }
@@ -189,8 +190,8 @@ private fun BooksGrid(
                     HeroCarousel(
                         books = heroItems,
                         onClick = {
-//                            onIntent(HomeIntent.OpenDetails(it))
-                                  },
+                            onIntent(HomeIntent.OpenDetails(it))
+                      },
                     )
                     Spacer(Modifier.height(4.dp))
                 }

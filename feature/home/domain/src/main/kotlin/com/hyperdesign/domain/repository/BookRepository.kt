@@ -11,7 +11,7 @@ interface BookRepository {
 
     fun observeBook(id: Int): Flow<Book?>
 
-//    suspend fun getBook(id: Int): Outcome<Book>
+    suspend fun getBook(id: Int): Outcome<Book>
 
     suspend fun refresh(): Outcome<Unit>
 }

@@ -1,5 +1,6 @@
 package com.hyperdesign.data.remote
 
+import com.hyperdesign.data.remote.dto.BookDto
 import com.hyperdesign.data.remote.dto.BookResponseDto
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -16,4 +17,8 @@ class BooksApi(
             parameter("number", num)
             parameter("offset", offset)
         }.body()
+
+
+    suspend fun getBookById(id:Int): BookDto =
+        client.get("/$id").body()
 }

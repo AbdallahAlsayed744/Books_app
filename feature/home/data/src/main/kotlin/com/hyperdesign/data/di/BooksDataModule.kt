@@ -1,5 +1,7 @@
 package com.hyperdesign.data.di
 
+import com.hyperdesign.contract.books.BooksProvider
+import com.hyperdesign.data.contract.BooksProviderImpl
 import com.hyperdesign.data.remote.BooksApi
 import com.hyperdesign.data.repository.BookRepositoryImpl
 import com.hyperdesign.domain.repository.BookRepository
@@ -11,6 +13,6 @@ val booksDataModule = module {
 
     singleOf(::BooksApi)
     singleOf(::BookRepositoryImpl) { bind<BookRepository>() }
-//    singleOf(::MovieProviderImpl) { bind<MovieProvider>() }
+    singleOf(::BooksProviderImpl) { bind<BooksProvider>() }
 
 }

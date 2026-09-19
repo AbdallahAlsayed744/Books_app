@@ -43,7 +43,11 @@ dependencies {
     implementation(project(":feature:home:domain"))
     implementation(project(":feature:search:presentation"))
     implementation(project(":feature:favourites:presentation"))
+    implementation(project(":feature:favourites:domain"))
+    implementation(project(":feature:favourites:data"))
     implementation(project(":feature:settings:presentation"))
+    implementation(project(":feature:book-details:presentation"))
+    implementation(project(":feature:book-details:domain"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

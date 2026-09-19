@@ -14,6 +14,7 @@ import com.hyperdesign.database.BookAppDatabase
 import com.hyperdesign.domain.model.Book
 import com.hyperdesign.domain.repository.BookRepository
 import com.hyperdesign.domain.result.Outcome
+import com.hyperdesign.domain.result.map
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -39,17 +40,17 @@ class BookRepositoryImpl(
     override fun observeBook(id: Int): Flow<Book?> =
         bookDao.observeById(id).map { it?.toDomain() }
 
-//    override suspend fun getBook(id: Int): Outcome<Book> {
-//        bookDao.findById(id)?.let {
-//            return Outcome.Success(it.toDomain())
-//        }
-//
-//        return safeApiCall { api.getBook(id) }.map { dto ->
-//            val entity = dto.toEntity(category = DETAIL_CATEGORY, page = 0, position = 0)
-//            bookDao.upsertAll(listOf(entity))
-//            entity.toDomain()
-//        }
-//    }
+    override suspend fun getBook(id: Int): Outcome<Book> {
+        bookDao.findById(id)?.let {
+            return Outcome.Success(it.toDomain())
+        }
+
+        return safeApiCall { api.getBookById(id) }.map { dto ->
+            val entity = dto.toEntity(offset = 0, pageSize = 0, position = 0)
+            bookDao.upsertAll(listOf(entity))
+            entity.toDomain()
+        }
+    }
 
     override suspend fun refresh(): Outcome<Unit> = safeApiCall {
         val response = api.getBooks(query = "books+about+wizards",0, 10)

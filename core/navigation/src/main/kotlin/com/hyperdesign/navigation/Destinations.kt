@@ -14,7 +14,7 @@ data object Search: NavKey
 data object Settings: NavKey
 
 @Serializable
-data object BookDetails: NavKey
+data class BookDetails(val bookId: Int): NavKey
 
 @Serializable
 data object BookList: NavKey

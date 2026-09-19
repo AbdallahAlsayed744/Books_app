@@ -2,9 +2,12 @@ package com.hyperdesign.books_app.di
 
 import com.hyperdesign.data.di.booksDataModule
 import com.hyperdesign.data.di.commonDataModule
+import com.hyperdesign.data.di.favoritesDataModule
 import com.hyperdesign.database.di.databaseModule
 import com.hyperdesign.domain.di.booksDomainModule
+import com.hyperdesign.domain.di.favoritesDomainModule
 import com.hyperdesign.networking.di.networkModule
+import com.hyperdesign.presentation.di.bookDetailsPresentationModule
 import com.hyperdesign.presentation.di.favouritesPresentationModule
 import com.hyperdesign.presentation.di.homePresentationModule
 import com.hyperdesign.presentation.di.searchPresentationModule
@@ -27,5 +30,8 @@ val allModules = listOf(
     appModule,
     databaseModule,
     booksDataModule,
-    booksDomainModule
+    booksDomainModule,
+    favoritesDomainModule,
+    favoritesDataModule,
+    bookDetailsPresentationModule
 )
