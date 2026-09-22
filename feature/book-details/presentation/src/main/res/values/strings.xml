@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="details_retry">Retry</string>
+    <string name="details_overview">Overview</string>
+    <string name="details_no_overview">No overview available.</string>
+</resources>
