@@ -9,14 +9,14 @@ import kotlinx.coroutines.flow.flowOf
 
 class ObserveFavoriteMoviesUseCase(
     private val favoritesRepository: FavoritesRepository,
-    private val movieProvider: BooksProvider,
+    private val bookProvider: BooksProvider,
 ) : FlowUseCase<Unit, List<BookSummary>> {
     override fun invoke(params: Unit): Flow<List<BookSummary>> =
         favoritesRepository.observeFavoriteIds().flatMapLatest { ids ->
             if (ids.isEmpty()) {
                 flowOf(emptyList())
             } else {
-                combine(ids.map { id -> movieProvider.observeBook(id) }) { movies ->
+                combine(ids.map { id -> bookProvider.observeBook(id) }) { movies ->
                     movies.filterNotNull()
                 }
             }
