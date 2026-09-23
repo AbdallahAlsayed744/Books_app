@@ -35,7 +35,11 @@
             <option value="$PROJECT_DIR$/core/navigation" />
             <option value="$PROJECT_DIR$/core/networking" />
             <option value="$PROJECT_DIR$/feature" />
+            <option value="$PROJECT_DIR$/feature/book-details" />
+            <option value="$PROJECT_DIR$/feature/book-details/domain" />
+            <option value="$PROJECT_DIR$/feature/book-details/presentation" />
             <option value="$PROJECT_DIR$/feature/booklist" />
+            <option value="$PROJECT_DIR$/feature/ddd" />
             <option value="$PROJECT_DIR$/feature/favourites" />
             <option value="$PROJECT_DIR$/feature/favourites/data" />
             <option value="$PROJECT_DIR$/feature/favourites/domain" />

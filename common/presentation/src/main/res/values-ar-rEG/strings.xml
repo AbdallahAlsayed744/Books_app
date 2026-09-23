@@ -18,4 +18,6 @@
     <string name="books_cat_now_playing">Now Playing</string>
     <string name="books_cat_top_rated">Top Rated</string>
     <string name="books_cat_upcoming">Upcoming</string>
+    <string name="favorites_title">Favorites</string>
+    <string name="favorites_empty">No Favourites Exist</string>
 </resources>
