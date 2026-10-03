@@ -3,9 +3,10 @@ package com.hyperdesign.presentation.navigation
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
+import com.hyperdesign.navigation.BookDetails
 import com.hyperdesign.navigation.FeatureEntryProvider
 import com.hyperdesign.navigation.Search
-import com.hyperdesign.presentation.SearchScreen
+import com.hyperdesign.presentation.SearchRoute
 
 class SearchEntryProvider: FeatureEntryProvider {
 
@@ -13,7 +14,7 @@ class SearchEntryProvider: FeatureEntryProvider {
         backStack: NavBackStack<NavKey>
     ) {
         entry<Search> {
-            SearchScreen()
+            SearchRoute(onOpenDetails = { id -> backStack.add(BookDetails(id)) })
         }
     }
 }

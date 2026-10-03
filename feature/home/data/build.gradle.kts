@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.hyperdesign.data"
+    namespace = "com.hyperdesign.home.data"
 
 }
 

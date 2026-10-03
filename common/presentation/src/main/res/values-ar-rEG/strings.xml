@@ -20,4 +20,8 @@
     <string name="books_cat_upcoming">Upcoming</string>
     <string name="favorites_title">Favorites</string>
     <string name="favorites_empty">No Favourites Exist</string>
+    <string name="search_hint">Serahc about authors here</string>
+    <string name="search_retry">Retry again</string>
+    <string name="search_no_results">No results found.</string>
+    <string name="search_prompt">find your author</string>
 </resources>

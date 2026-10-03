@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
 }
 android {
-    namespace = "com.hyperdesign.data"
+    namespace = "com.hyperdesign.search.data"
 }
 
 dependencies {
