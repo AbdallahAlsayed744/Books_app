@@ -1,5 +1,7 @@
 package com.hyperdesign.books_app.di
 
+import com.app.data.di.settingsDataModule
+import com.app.domain.di.settingsDomainModule
 import com.hyperdesign.data.di.booksDataModule
 import com.hyperdesign.data.di.commonDataModule
 import com.hyperdesign.data.di.favoritesDataModule
@@ -39,5 +41,7 @@ val allModules = listOf(
     bookDetailsPresentationModule,
     bookDetailsDomainModule,
     searchDomainModule,
-    searchDataModule
+    searchDataModule,
+    settingsDomainModule,
+    settingsDataModule
 )

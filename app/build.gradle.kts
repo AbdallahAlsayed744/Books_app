@@ -48,6 +48,8 @@ dependencies {
     implementation(project(":feature:favourites:domain"))
     implementation(project(":feature:favourites:data"))
     implementation(project(":feature:settings:presentation"))
+    implementation(project(":feature:settings:data"))
+    implementation(project(":feature:settings:domain"))
     implementation(project(":feature:book-details:presentation"))
     implementation(project(":feature:book-details:domain"))
 

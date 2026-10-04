@@ -24,5 +24,14 @@
     <string name="search_retry">Retry again</string>
     <string name="search_no_results">No results found.</string>
     <string name="search_prompt">find your author</string>
+    <string name="settings_title">Settings</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_dark">Dark</string>
+    <string name="settings_theme_system">Follow system</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_language_en">English</string>
+    <string name="settings_language_ar">العربية</string>
+    <string name="settings_dynamic_color">Use dynamic color (Material You)</string>
 
 </resources>

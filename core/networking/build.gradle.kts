@@ -24,7 +24,7 @@ android {
         buildConfigField(
             "String",
             "BOOKS_BASE_URL",
-            "\"${localProps.getProperty("BOOKS_BASE_URL", "https://project-gutenberg-free-books-api1.p.rapidapi.com/")}\"",
+            "\"${localProps.getProperty("BOOKS_BASE_URL", "https://api.bigbookapi.com/")}\"",
         )
 
         buildConfigField(

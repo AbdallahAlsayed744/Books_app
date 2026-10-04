@@ -29,21 +29,22 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
-import com.hyperdesign.books_app.ui.theme.Books_appTheme
+import com.app.domain.usecase.ObservePreferencesUseCase
+import com.hyperdesign.contract.preferences.UserPreferences
 import com.hyperdesign.design_system.theme.BookTheme
 import com.hyperdesign.navigation.FeatureEntryProvider
 import com.hyperdesign.navigation.LocalSharedTransitionScope
 import com.hyperdesign.navigation.install
-import kotlinx.coroutines.launch
 import org.koin.compose.getKoin
+import org.koin.compose.koinInject
 
 private data class TopLevelDestination(
     val key: NavKey,
@@ -62,16 +63,17 @@ private val topLevelDestinations = listOf(
 @OptIn(ExperimentalSharedTransitionApi::class)
 @Composable
 fun BookAppRoot() {
+    // Observe user preferences so theme/language changes are reflected immediately
+    val observePreferences: ObservePreferencesUseCase = koinInject()
+    val preferences by observePreferences(Unit).collectAsStateWithLifecycle(
+        initialValue = UserPreferences(),
+    )
 
-    BookTheme(){
-        val scope = rememberCoroutineScope()
-
-
+    BookTheme(
+        themeMode = preferences.themeMode,
+        dynamicColor = preferences.dynamicColor,
+    ) {
         var setupDismissed by rememberSaveable { mutableStateOf(false) }
-//        if (!NetworkConstants.HAS_ACCESS_TOKEN && !setupDismissed) {
-//            ApiKeySetupScreen(onContinue = { setupDismissed = true })
-//            return@MovieAppTheme
-//        }
 
         val backStack = rememberNavBackStack(Home)
         val entryProviders = getKoin().getAll<FeatureEntryProvider>()
@@ -122,6 +124,5 @@ fun BookAppRoot() {
                 }
             }
         }
-
     }
 }

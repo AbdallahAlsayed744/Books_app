@@ -17,8 +17,7 @@ data class UserPreferences(
     val themeMode: ThemeMode = ThemeMode.SYSTEM,
     val dynamicColor: DynamicColor = DynamicColor.ENABLED,
     val language: AppLanguage = AppLanguage.ENGLISH,
-    val onboardingCompleted: Boolean = false,
-)
+    )
 
 interface UserPreferencesRepository {
     val preferences: Flow<UserPreferences>

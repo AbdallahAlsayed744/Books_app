@@ -5,6 +5,7 @@ import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 import com.hyperdesign.navigation.FeatureEntryProvider
 import com.hyperdesign.navigation.Settings
+import com.hyperdesign.presentation.SettingsRoute
 import com.hyperdesign.presentation.SettingsScreen
 
 class SettingsEntryProvider : FeatureEntryProvider {
@@ -12,7 +13,7 @@ class SettingsEntryProvider : FeatureEntryProvider {
         backStack: NavBackStack<NavKey>
     ) {
         entry<Settings> {
-            SettingsScreen()
+            SettingsRoute()
         }
     }
 }

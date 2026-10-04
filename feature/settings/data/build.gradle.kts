@@ -14,4 +14,5 @@ dependencies {
     implementation(project(":core:contract"))
 
     implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.androidx.datastore.preferences)
 }

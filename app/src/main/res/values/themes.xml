@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.Books_app" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- AppCompat DayNight base so AppCompatActivity + per-app locales work. Compose owns the
+         actual Material 3 colors via BookTheme; this is just the window/splash theme. -->
+    <style name="Theme.Books_app" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
 </resources>
