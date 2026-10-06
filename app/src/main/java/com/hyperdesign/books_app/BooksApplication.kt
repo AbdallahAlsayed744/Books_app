@@ -2,6 +2,7 @@ package com.hyperdesign.books_app
 
 import android.app.Application
 import com.hyperdesign.books_app.di.allModules
+import com.hyperdesign.books_app.sync.SyncScheduler
 import com.hyperdesign.presentation.di.homePresentationModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.workmanager.koin.workManagerFactory
@@ -12,9 +13,11 @@ class BooksApplication: Application() {
         super.onCreate()
         startKoin {
             androidContext(this@BooksApplication)
-//        workManagerFactory()
+            workManagerFactory()
             modules(allModules)
         }
+
+        SyncScheduler.schedulePeriodicSync(this)
     }
 
 

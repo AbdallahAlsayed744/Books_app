@@ -2,6 +2,7 @@ package com.hyperdesign.books_app.di
 
 import com.app.data.di.settingsDataModule
 import com.app.domain.di.settingsDomainModule
+import com.hyperdesign.books_app.sync.SyncWorker
 import com.hyperdesign.data.di.booksDataModule
 import com.hyperdesign.data.di.commonDataModule
 import com.hyperdesign.data.di.favoritesDataModule
@@ -20,10 +21,12 @@ import com.hyperdesign.presentation.di.settingsPresentationModule
 import com.hyperdesign.presentation.resource.AndroidResourceProvider
 import com.hyperdesign.presentation.resource.ResourceProvider
 import org.koin.android.ext.koin.androidContext
+import org.koin.androidx.workmanager.dsl.worker
 import org.koin.dsl.module
 
 val appModule = module {
     single<ResourceProvider> { AndroidResourceProvider(androidContext()) }
+    worker { SyncWorker(androidContext(), get(), get()) }
 }
 val allModules = listOf(
     homePresentationModule,
