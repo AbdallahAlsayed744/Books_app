@@ -33,10 +33,10 @@ A modern Android books browser built with **Clean Architecture**, **MVI**, and a
 The project follows **Clean Architecture** principles with a strict three-layer separation inside every feature:
 
 ```
-Presentation  ──►  Domain  ──►  Data
+Presentation  ──►  Domain  ◄──  Data
      │                │            │
- ViewModel        UseCases     Repository
- UI State         Entities     Remote/Local
+ ViewModel        UseCases     Repository (impl)
+ UI State         Entities     Remote / Local
  Intents          Outcome      API / Room
 ```
 
